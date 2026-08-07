@@ -1,0 +1,66 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOKILS8O3OAfCNZjstxdfgT",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Rohan-724/CSA1702/blob/main/Backend%20Chaining%20Example\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "xofUAJjKyHDU"
+      },
+      "outputs": [],
+      "source": [
+        "# Backward Chaining Example\n",
+        "\n",
+        "# Known facts\n",
+        "facts = {\"Study\"}\n",
+        "\n",
+        "# Rule: Pass requires Study\n",
+        "rules = {\n",
+        "    \"Pass\": \"Study\"\n",
+        "}\n",
+        "\n",
+        "# Goal\n",
+        "goal = \"Pass\"\n",
+        "\n",
+        "print(\"Goal:\", goal)\n",
+        "\n",
+        "if goal in rules:\n",
+        "    required_fact = rules[goal]\n",
+        "    print(\"Need to prove:\", required_fact)\n",
+        "\n",
+        "    if required_fact in facts:\n",
+        "        print(\"Fact found:\", required_fact)\n",
+        "        print(\"Goal Proved\")\n",
+        "    else:\n",
+        "        print(\"Goal Cannot Be Proved\")\n",
+        "else:\n",
+        "    print(\"No rule available\")"
+      ]
+    }
+  ]
+}
