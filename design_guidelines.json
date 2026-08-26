@@ -1,0 +1,95 @@
+{
+  "theme": "Light theme preferred for clinical trust and calmness.",
+  "archetype": "ORGANIC & EARTHY mixed with SWISS & HIGH-CONTRAST",
+  "typography": {
+    "fonts": {
+      "landing_heading": "Cormorant Garamond",
+      "app_heading": "Work Sans",
+      "body": "IBM Plex Sans",
+      "forbidden": ["Inter", "Roboto", "Open Sans", "Lato", "Space Grotesk"]
+    },
+    "sizing": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight",
+      "h3": "text-xl sm:text-2xl",
+      "body": "text-base leading-relaxed",
+      "labels": "text-xs tracking-[0.2em] uppercase"
+    },
+    "rules": "Never center-align paragraphs. Use tight letter spacing for headings."
+  },
+  "colors": {
+    "background": "#F9F8F6",
+    "surface": "#FFFFFF",
+    "primary": "#1A3626",
+    "secondary": "#849F86",
+    "text_main": "#1E211F",
+    "text_muted": "#5C635E",
+    "severity": {
+      "mild": "#4A7856",
+      "moderate": "#D99A29",
+      "concerning": "#C84C31"
+    },
+    "forbidden": ["#7351B7", "#1B93A4", "#000000", "#808080"],
+    "rules": "Use tinted greys. Ensure high contrast for all medical data. Do not use full-screen gradients."
+  },
+  "visual_enhancers": {
+    "surfaces": "Flat Solid surfaces ONLY. No Glassmorphism for health apps to prevent visual refraction of data.",
+    "borders": "Subtle borders (border-black/5 or border-stone-200) for definition.",
+    "shadows": "Ambient diffuse shadow with sharp 1px inner border.",
+    "radius": "Subtle roundness (max 8px border-radius) or sharp edges. No pill-shaped cards."
+  },
+  "layouts": {
+    "landing_page": "Mode A: Tetris Grid. Asymmetric bento grid, wide gaps (gap-8 to gap-12). Overlapping elements for visual tension.",
+    "chat_app": "Mode B: High Density Grid. Strict grid hierarchy, dense spacing (gap-4 or gap-6). Chat history sidebar and main chat area.",
+    "spacing_scale": "p-1, p-2, p-4, p-6, p-8, p-12, p-16, p-20, p-24, p-32. Use 2-3x more spacing than typical defaults."
+  },
+  "components": {
+    "chat_bubbles": "User: Solid secondary (Calm Sage) with white text. AI: White surface with subtle 1px border. No generic tails.",
+    "medication_cards": "Flat, rectangular cards with left-border highlighting severity color. Minimalist typography.",
+    "alerts": "Terracotta background (10% opacity) with solid Terracotta text and border. Use lucide-react warning icons.",
+    "buttons": "Primary buttons: Deep Forest Green (#1A3626). Sharp or slightly rounded edges, no full pills.",
+    "navigation": "Visible navbar with brand name, links, CTA. Solid background, NOT transparent."
+  },
+  "motion": {
+    "transitions": "Use specific properties: transition: transform 0.2s ease, opacity 0.2s ease. NO 'transition: all'.",
+    "micro_interactions": "Hover states must have higher contrast. Click/press states should translate-y-1 slightly.",
+    "typing_indicator": "Subtle organic fade/bounce of 3 dots.",
+    "accessibility": "Respect prefers-reduced-motion."
+  },
+  "media": {
+    "image_urls": {
+      "hero_landing": {
+        "url": "https://images.pexels.com/photos/7005608/pexels-photo-7005608.jpeg",
+        "description": "Woman in cozy bedroom with laptop - represents calm, accessible home health tech"
+      },
+      "tech_feature": {
+        "url": "https://images.pexels.com/photos/6203473/pexels-photo-6203473.jpeg",
+        "description": "ECG graph on grid - for 'How it works' or analysis representation"
+      },
+      "clinic_trust": {
+        "url": "https://images.pexels.com/photos/19961771/pexels-photo-19961771.jpeg",
+        "description": "Smartwatch heart rate - represents biometric tracking and modern integration"
+      }
+    },
+    "rules": "Do NOT use generic placeholder images. Constrain images to max-h-[80vh] on mobile."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "rules": "Do NOT use emojis (e.g., 🤖, ⚠️, 💊) as icons. Always use proper SVG icons from the library."
+  },
+  "accessibility": {
+    "contrast": "APCA contrast standards. Minimum 4.5:1 for normal text.",
+    "testing": "All interactive elements MUST include data-testid attribute in kebab-case."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container (.App { text-align: center; }).",
+    "NEVER use AI assistant Emoji characters (🤖🧠💭💡) for icons.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Prioritize using pre-existing components from src/components/ui.",
+    "Use 'sonner' for toasts (/app/src/components/ui/sonner.tsx)."
+  ]
+}

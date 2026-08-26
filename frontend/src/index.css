@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background: #f9f8f6;
+  color: #1e211f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 140 5% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 140 5% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 5% 12%;
+    --primary: 145 37% 15%;
+    --primary-foreground: 40 20% 97%;
+    --secondary: 118 12% 57%;
+    --secondary-foreground: 145 37% 15%;
+    --muted: 40 10% 92%;
+    --muted-foreground: 140 4% 37%;
+    --accent: 40 10% 92%;
+    --accent-foreground: 145 37% 15%;
+    --destructive: 12 60% 49%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 8% 88%;
+    --input: 40 8% 88%;
+    --ring: 145 37% 15%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4 {
+    font-family: "Work Sans", sans-serif;
+    letter-spacing: -0.01em;
+  }
+  .font-display {
+    font-family: "Cormorant Garamond", serif;
+  }
+}
+
+/* Custom typing indicator dots */
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #849f86;
+  display: inline-block;
+  margin: 0 2px;
+}
+.typing-dot:nth-child(1) { animation: typing-bounce 1.4s infinite ease-in-out; animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation: typing-bounce 1.4s infinite ease-in-out; animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation: typing-bounce 1.4s infinite ease-in-out; animation-delay: 0.4s; }
+
+/* Markdown-ish styling for chat messages */
+.md-content h2 { font-family: "Work Sans"; font-weight: 600; font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.5rem; color: #1a3626; }
+.md-content h3 { font-family: "Work Sans"; font-weight: 600; font-size: 1rem; margin-top: 1rem; margin-bottom: 0.4rem; color: #1a3626; }
+.md-content p { margin-bottom: 0.6rem; line-height: 1.6; }
+.md-content ul { list-style: disc; padding-left: 1.2rem; margin-bottom: 0.6rem; }
+.md-content ol { list-style: decimal; padding-left: 1.2rem; margin-bottom: 0.6rem; }
+.md-content li { margin-bottom: 0.2rem; line-height: 1.55; }
+.md-content strong { font-weight: 600; color: #1a3626; }
+.md-content blockquote {
+  border-left: 3px solid #849f86;
+  background: #f4f2ee;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+.md-content code {
+  background: #eee;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "First-finish latency-sensitive testing complete. All 15 backend API checks and full frontend user journey (landing -> register -> chat mild + emergency -> sidebar -> logout -> protected route) passed. LLM (Claude Sonnet 5 via Emergent Universal Key) correctly returns follow-up questions for mild symptoms and emergency block with ⚠️ EMERGENCY heading for cardiac-style presentation; no OTC suggestions leaked into emergency reply. Cookies work cross-origin (SameSite=None; Secure).",
+  "tested_scope": ["frontend", "backend", "auth", "integration"],
+  "passed": [
+    "POST /api/auth/register creates user, sets httpOnly cookie, returns {id,email,name}",
+    "POST /api/auth/register duplicate email -> 400",
+    "POST /api/auth/logout returns 200",
+    "POST /api/auth/login with seeded admin (admin@medisense.app/admin123) -> 200 + cookie",
+    "POST /api/auth/login wrong password -> 401",
+    "GET /api/auth/me returns 200 with cookie; 401 without",
+    "POST /api/chat mild sore throat -> follow-up questions in assistant_message (contains '?'), new conversation_id created",
+    "POST /api/chat with existing conversation_id continues same conversation and references prior context",
+    "POST /api/chat emergency prompt (chest pain + arm radiation + SOB) -> '⚠️ EMERGENCY' block present and NO OTC medication suggestions",
+    "GET /api/conversations returns list sorted by updated_at desc",
+    "GET /api/conversations/{id} returns messages in chronological order",
+    "DELETE /api/conversations/{id} -> 200; subsequent GET -> 404",
+    "Auth enforced on /api/chat and /api/conversations (401 without cookie)",
+    "Landing page renders hero-title, hero-start-btn, hero-how-btn, footer disclaimer",
+    "Register form redirects to /chat on success (nav-register-link -> register-form -> /chat)",
+    "Chat page shows welcome with 'MediSense', new-conversation-btn, chat-input, chat-send-btn",
+    "Sending mild symptom shows typing-indicator then assistant bubble",
+    "Emergency symptom renders red-bordered [data-testid='emergency-alert'] bubble",
+    "New conversation button clears chat area",
+    "Sidebar populates with conversations after chats",
+    "Logout redirects to landing and /chat becomes protected (redirects to /login)"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}
